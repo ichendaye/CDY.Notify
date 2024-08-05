@@ -5,6 +5,8 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDY.Notify", "CDY.Notify\CDY.Notify.csproj", "{5898AE8E-204C-4E82-A9BF-E4694BC8C1FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDY.Notify.Test", "CDY.Notify.Test\CDY.Notify.Test.csproj", "{EE63531A-E7D2-460E-83C6-1C9C1FB8DB55}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5898AE8E-204C-4E82-A9BF-E4694BC8C1FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5898AE8E-204C-4E82-A9BF-E4694BC8C1FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5898AE8E-204C-4E82-A9BF-E4694BC8C1FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE63531A-E7D2-460E-83C6-1C9C1FB8DB55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE63531A-E7D2-460E-83C6-1C9C1FB8DB55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE63531A-E7D2-460E-83C6-1C9C1FB8DB55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE63531A-E7D2-460E-83C6-1C9C1FB8DB55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
