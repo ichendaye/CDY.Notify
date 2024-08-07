@@ -6,7 +6,7 @@ using System.Web;
 namespace CDY.Notify
 {
     /// <summary>
-    /// 钉钉通知
+    /// 钉钉 推送
     /// </summary>
     public class DingTalk
     {
@@ -15,7 +15,7 @@ namespace CDY.Notify
         string Secret = string.Empty;
 
         /// <summary>
-        /// 初始化钉钉通知
+        /// 初始化
         /// </summary>
         /// <param name="appName">应用名称</param>
         /// <param name="webhook">webhook地址</param>
