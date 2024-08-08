@@ -21,14 +21,20 @@ namespace CDY.Notify
     /// </summary>
     public class Bark
     {
-        RestClient Client = null;
+        List<RestClient> Clients = new List<RestClient>();
         /// <summary>
         /// 初始化
         /// </summary>
-        /// <param name="key">密钥</param>
-        public Bark(string key)
+        /// <remarks>
+        /// 可同时推送多台设备
+        /// </remarks>
+        /// <param name="deviceTokens">设备token</param>
+        public Bark(params string[] deviceTokens)
         {
-            Client = new RestClient("https://api.day.app/" + key);
+            foreach (var item in deviceTokens)
+            {
+                Clients.Add(new RestClient("https://api.day.app/" + item));
+            }
         }
 
         /// <summary>
@@ -37,15 +43,15 @@ namespace CDY.Notify
         /// <param name="title">标题</param>
         /// <param name="content">内容</param>
         /// <returns></returns>
-        public async Task SendAsync(string title, string content)
+        public void Send(string title, string content)
         {
-            if (Client == null)
+            if (Clients.Count == 0)
             {
                 throw new Exception("Bark未初始化");
             }
             var request = new RestRequest($"/{title}/{content}");
             request.Method = Method.Get;
-            await Client.ExecuteAsync(request);
+            Execute(request);
         }
         /// <summary>
         /// 发送消息，带图标
@@ -54,16 +60,23 @@ namespace CDY.Notify
         /// <param name="content">内容</param>
         /// <param name="icon">图标地址</param>
         /// <returns></returns>
-        public async Task SendAsync(string title, string content, string icon)
+        public void Send(string title, string content, string icon)
         {
-            if (Client == null)
+            if (Clients.Count == 0)
             {
                 throw new Exception("Bark未初始化");
             }
             var request = new RestRequest($"/{title}/{content}");
             request.AddQueryParameter("icon", icon);
             request.Method = Method.Get;
-            await Client.ExecuteAsync(request);
+            Execute(request);
+        }
+        void Execute(RestRequest request)
+        {
+            foreach (var client in Clients)
+            {
+                _ = client.ExecuteAsync(request);
+            }
         }
     }
 }
