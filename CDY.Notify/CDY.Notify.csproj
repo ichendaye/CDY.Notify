@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <Version>1.0.0.2</Version>
+    <Version>1.0.0.3</Version>
     <Authors>chendaye</Authors>
     <Company>chendaye</Company>
     <Description>消息通知</Description>
@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <PackageReference Include="RestSharp" Version="111.4.1" />
-    <None Include="README.md" Pack="true" PackagePath="\"/>
+    <None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>
