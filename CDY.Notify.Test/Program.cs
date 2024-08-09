@@ -6,9 +6,8 @@
         {
             try
             {
-                Bark bark = new Bark("eEpXGotfiqDbGgawdCCmG9");
+                Bark bark = new Bark("token");
                 bark.Send("测试", "测试2");
-                bark.Send("测试", "测试2", "https://file.chendaye.com/yb.png");
 
             }
             catch (Exception ex)
