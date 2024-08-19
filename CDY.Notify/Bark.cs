@@ -42,14 +42,19 @@ namespace CDY.Notify
         /// </summary>
         /// <param name="title">标题</param>
         /// <param name="content">内容</param>
+        /// <param name="isArchive">是否自动保存消息</param>
         /// <returns></returns>
-        public void Send(string title, string content)
+        public void Send(string title, string content, bool isArchive = false)
         {
             if (Clients.Count == 0)
             {
                 throw new Exception("Bark未初始化");
             }
             var request = new RestRequest($"/{title}/{content}");
+            if (isArchive)
+            {
+                request.AddQueryParameter("archive", "1");
+            }
             request.Method = Method.Get;
             Execute(request);
         }
@@ -59,8 +64,9 @@ namespace CDY.Notify
         /// <param name="title">标题</param>
         /// <param name="content">内容</param>
         /// <param name="icon">图标地址</param>
+        /// <param name="isArchive">是否自动保存消息</param>
         /// <returns></returns>
-        public void Send(string title, string content, string icon)
+        public void Send(string title, string content, string icon, bool isArchive = false)
         {
             if (Clients.Count == 0)
             {
@@ -68,6 +74,10 @@ namespace CDY.Notify
             }
             var request = new RestRequest($"/{title}/{content}");
             request.AddQueryParameter("icon", icon);
+            if (isArchive)
+            {
+                request.AddQueryParameter("archive", "1");
+            }
             request.Method = Method.Get;
             Execute(request);
         }
