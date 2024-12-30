@@ -44,7 +44,7 @@ namespace CDY.Notify
                 msgtype = "text",
                 text = new
                 {
-                    content = $"【{AppName}】\r\n{content}" 
+                    content = $"【{AppName}】\r\n{content}"
                 },
                 at = new { isAtAll }
             };
@@ -58,7 +58,7 @@ namespace CDY.Notify
             try
             {
                 // 等待异步操作完成，并处理可能的异常
-                var jg=await client.PostAsync(request);
+                var jg = await client.PostAsync(request);
             }
             catch (Exception ex)
             {
@@ -88,7 +88,7 @@ namespace CDY.Notify
                 markdown = new
                 {
                     title = $"【{AppName}】",
-                    text = $"# {AppName}异常信息\r\n```\r\n{exception.Message}\r\n```\r\n# 堆栈信息\r\n```\r\n{exception.StackTrace}\r\n```"
+                    text = $"## {AppName} \n 异常信息 \n > {exception.Message} \n ## 堆栈信息 \n > {exception.StackTrace}"
                 },
                 at = new
                 {
@@ -102,7 +102,7 @@ namespace CDY.Notify
             request.AddQueryParameter("sign", GenerateSignature(timestamp));
             try
             {
-                await client.PostAsync(request); // 等待异步操作完成，并处理可能的异常
+                var result = await client.PostAsync(request); // 等待异步操作完成，并处理可能的异常
             }
             catch (Exception ex)
             {
